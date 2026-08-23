@@ -1,5 +1,6 @@
 # Import python packages
 import streamlit as st
+import requests 
 from snowflake.snowpark.functions import col
 
 # Write directly to the app
@@ -44,7 +45,7 @@ if ingredients_list:
         st.success(f'Your Smoothie is ordered,{name_on_order}!', icon="✅")
 
 # New section to display smoothiefroot nutrition information
-import requests  
-smoothiefroot_response = requests.get("[https://my.smoothiefroot.com/api/fruit/watermelon](https://my.smoothiefroot.com/api/fruit/watermelon)")  
+url = "https://my.smoothiefroot.com/api/fruit/watermelon"
+smoothiefroot_response = requests.get(url)
 st.text(smoothiefroot_response.json())
 
